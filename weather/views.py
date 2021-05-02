@@ -18,7 +18,7 @@ def index(request):
     req = requests.get(url.format(city)).json()
     desc = req['weather'][0]['description']
     bgImg = 'white'
-    weatherDict = {
+    dict= {
         'cod': req['cod'],
         'bg': bgImg,
         'city': req['name'],
@@ -35,5 +35,5 @@ def index(request):
         'pressure': req['main']['pressure'],
     }
     # print(weatherDict)
-    context = {'weatherDict': weatherDict, 'form': form}
+    context = {'dict': dict, 'form': form}
     return render(request, 'weather/weather.html', context)
